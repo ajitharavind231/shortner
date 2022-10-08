@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div>
+    <h1>long url page</h1>
+</div>
+<div>
+    <form method="POST" action="shorter/">
+        {% csrf_token %}
+        <input type="text" name="longurl">
+        <input  type="submit">
+    </form>
+</div>
+</body>
+</html>
