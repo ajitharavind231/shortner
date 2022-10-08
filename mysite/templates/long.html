@@ -8,7 +8,8 @@
     <form method="POST" action="shorter/">
         {% csrf_token %}
         <input type="text" name="longurl">
-        <input  type="submit">
+        <input  type="submit"><br><br>
+        the current user = {{user.username}}
     </form>
 </div>
 </body>

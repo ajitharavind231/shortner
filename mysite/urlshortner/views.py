@@ -4,6 +4,10 @@ from django.shortcuts import redirect, render
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 from .models import urlmodels
+from datetime import timedelta
+from django.utils import timezone
+from django.contrib.auth.models import User
+
 def longpage(request):
     return render(request,'long.html')
 
@@ -21,8 +25,10 @@ def redirecturl(request,shorturl):
     print(shorturl)
     obj=urlmodels.objects.get(shorturl=shorturl)
     print("the long url is ",obj.longurl)
+    #expiry = timezone.now().date() - timedelta(days=7)
+   # obj=urlmodels.objects.filter(added=expiry)
     if obj:
-
+    
         return redirect('https://'+obj.longurl)
     else:
         return Http404
