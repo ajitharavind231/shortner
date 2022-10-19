@@ -1,0 +1,24 @@
+<html>
+<style>
+  body{background-color:rgb(102, 102, 97) ;}
+  h2{text-align: center;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+  p{text-align: center;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+  input{align-self:stretch;width: 30%;padding: 0px;margin: 6px 0;box-sizing: border-box;background-color: #202221;color: white;}
+  input[type=submit]{background-color: #04AA6D;border: none;color: white;padding: 8px 24px;margin: 4px 2px;cursor: pointer;
+    }
+</style>
+<body>
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<h2>Log In</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Log In" style="position:relative; top: 0px; left: 39%;">
+</form>
+{% endblock %}
+</body>
+</html>

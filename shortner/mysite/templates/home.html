@@ -1,0 +1,24 @@
+
+<html>  
+<style>
+  body{background-color: rgb(102, 102, 97);margin: 8px;padding: 8px;}
+  h4{text-align:center;font-family: 'Courier New', Courier, monospace;padding-left:2%;}
+  p{font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;text-align: center;}
+  p{font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
+</style>
+<body>
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <h4>Logged in as <strong>{{ user.username }}</strong>  </h4>
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+{% else %}
+  <p>You are not logged in</p>
+ <P><a href="{% url 'login' %}">Log In</a></P>
+{% endif %}
+{% endblock %}
+</body>
+</html>

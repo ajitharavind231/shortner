@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {background-color: rgb(189, 191, 192);}
+h1{color:beige; text-align: center;}
+h3{font-family: 'Courier New', Courier, monospace;}
+input{width: 100%;padding: 12px 20px;margin: 8px 0;box-sizing: border-box;background-color: #202221;color: white;}
+label{color: aqua;font-family: 'Courier New', Courier, monospace;}
+input[type=submit]{
+    background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+    }
+</style>
+
+<body>
+<div>
+    <h1>Short URL Generator</h1>
+</div>
+<div>
+    <form method="POST" action="shorter/">
+        {% csrf_token %}
+        <label for="fname">Enter Long URL</label><br>
+        <input type="text" name="longurl"><br>
+        <input  type="submit" value="Shorten"  ><br><br>
+        <h3>the current user = {{user.username}}</h3>
+    </form> 
+   
+</div>
+<div>
+{%  block mylist %} 
+{%  endblock    %}
+</div>
+</body>
+</html>

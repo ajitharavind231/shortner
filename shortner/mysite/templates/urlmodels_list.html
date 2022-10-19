@@ -1,0 +1,35 @@
+
+<style>
+    body{background-color: rgb(95, 95, 95);}
+    table,th,td{border:1px solid;border-collapse: collapse;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+    th{height: 70px;}
+    td{text-align: center;}   
+</style>
+</style>
+<h3>THE CURRENT URLS OWNED BY {{user.username}}</h3><br>
+<body>
+{% block mylist %}
+<table>
+    <tr>
+        <th>SHORTURLS</th>
+        <th>ACCESS.COUNT</th>
+        <th>OWNER</th>
+    </tr>
+    {% for urlist in object_list %}
+    <tr>
+        
+        <td>http://localhost:8000/short/{{urlist.shorturl}}</td>
+        <td>{{urlist.count}}</td>
+        <td>{{urlist.user}}</td>
+    </tr>
+    {%empty%}
+        <h3>no urls present</h3>
+    {% endfor %}
+</table>
+<div>
+    
+{% endblock %}
+</div>
+
+
+</body>
